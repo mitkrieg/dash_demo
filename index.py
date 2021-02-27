@@ -18,7 +18,7 @@ app.layout = html.Div([
 # This callback changes the layout of the page based on the URL
 # For each layout define a URL page "/pagename" and return the layout
 @app.callback(Output('page-content', 'children'), #this changes the content
-              Input('url', 'pathname')) #this listens for the url in use
+              [Input('url', 'pathname')]) #this listens for the url in use
 def display_page(pathname):
     if pathname == '/':
         return layout1

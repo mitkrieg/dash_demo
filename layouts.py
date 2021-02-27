@@ -47,8 +47,8 @@ def nav_bar():
         html.Hr(),
         dbc.Nav(
             [
-                dbc.NavLink("Page 1", href="/page1",active="exact"),
-                dbc.NavLink("Page 2", href="/page2", active="exact")
+                dbc.NavLink("Page 1", href="/page1",active="exact", external_link=True),
+                dbc.NavLink("Page 2", href="/page2", active="exact", external_link=True)
             ],
             pills=True,
             vertical=True
@@ -125,7 +125,7 @@ layout2 = html.Div(
                                 dcc.Dropdown(
                                     id='page2-dropdown',
                                     options=[
-                                        {'label': 'Dropdown - {}'.format(i), 'value': i} for i in [
+                                        {'label': '{}'.format(i), 'value': i} for i in [
                                         'United States', 'Canada', 'Mexico'
                                         ]
         ]
@@ -139,9 +139,9 @@ layout2 = html.Div(
                                 html.H4('Fruit'),
                                 html.Hr(),
                                 dcc.RadioItems(
-                                    id='page-2-buttons',
+                                    id='page2-buttons',
                                     options = [
-                                        {'label':'Buttons - {}'.format(i), 'value': i} for i in [
+                                        {'label':'{}'.format(i), 'value': i} for i in [
                                         'Yes', 'No', 'Maybe'
                                         ]
                                     ]
