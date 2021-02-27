@@ -29,12 +29,13 @@ NAVBAR_STYLE = {
 
 CONTENT_STYLE = {
     "top":0,
-    "margin-left": "20rem",
+    "margin-top":'2rem',
+    "margin-left": "18rem",
     "margin-right": "2rem",
 }
 
 #####################################
-# Create Components Here
+# Create Auxiliary Components Here
 #####################################
 
 def nav_bar():
@@ -59,21 +60,24 @@ def nav_bar():
     
     return navbar
 
+#graph 1
 example_graph1 = px.scatter(df, x="sepal_length",y="sepal_width",color="species")
 
+#graph 2
 example_graph2 = px.histogram(df, x="sepal_length", color = "species",nbins=20)
 example_graph2.update_layout(barmode='overlay')
 example_graph2.update_traces(opacity=0.55)
 
 
 #####################################
-# Page Layouts
+# Create Page Layouts Here
 #####################################
 
 ### Layout 1
 layout1 = html.Div([
     html.H2("Page 1"),
     html.Hr(),
+    # create bootstrap grid
     dbc.Container([
         dbc.Row(
             [
@@ -82,6 +86,7 @@ layout1 = html.Div([
                         html.Div(
                             [
                             html.H4('Example Graph Page'),
+                            #create tabs
                             dbc.Tabs(
                                 [
                                     dbc.Tab(label='graph1',tab_id='graph1'),
@@ -100,7 +105,7 @@ layout1 = html.Div([
                 dbc.Col(
                     [
                         html.H4('Additional Components here'),
-                        html.P('Text Example')
+                        html.P('Click on graph to display text', id='graph-text')
                     ],
                     width=6 #half page
                 )
@@ -114,6 +119,8 @@ layout1 = html.Div([
 ### Layout 2
 layout2 = html.Div(
     [
+        html.H2('Page 2'),
+        html.Hr(),
         dbc.Container(
             [
                 dbc.Row(
@@ -142,7 +149,7 @@ layout2 = html.Div(
                                     id='page2-buttons',
                                     options = [
                                         {'label':'{}'.format(i), 'value': i} for i in [
-                                        'Yes', 'No', 'Maybe'
+                                        'Yes ', 'No ', 'Maybe '
                                         ]
                                     ]
                                 ),
